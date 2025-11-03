@@ -1,0 +1,24 @@
+.income-add-button{
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  background-color: crimson;
+  color: white;
+  font-weight: bold;
+}
+.income-title{
+  color: darkgreen;
+}
+.income-catcher{
+  width: 120px;
+  height: 22px;
+}
+.income-tracking-container{
+  border: 1px solid #e0e0e0;
+  background-color: #f6f4f4;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
