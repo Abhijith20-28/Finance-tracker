@@ -10,7 +10,7 @@ function TransactionList({history,removeIncome,EditIncome,exphistory,removeExpen
       <ol className='income-grid'>
        {history.map((transaction,index)=>(
        <li className='income-list' key={index}>
-        <div>${transaction.amount}</div>
+        <div>₹{transaction.amount}</div>
         <div>{transaction.source}</div>
         <div>on{transaction.date}</div>   
         <div>
@@ -32,7 +32,7 @@ function TransactionList({history,removeIncome,EditIncome,exphistory,removeExpen
        <ol className='expense-grid'>
       {exphistory.map((living,index)=>(
         <li className='expense-list' key={index}>
-        <div>${living.amount}</div>
+        <div>₹{living.amount}</div>
         <div>{living.expEntry}</div>
         <div> on {living.date}</div>
         <div>

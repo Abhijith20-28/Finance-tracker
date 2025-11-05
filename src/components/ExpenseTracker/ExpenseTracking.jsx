@@ -1,6 +1,6 @@
 import '../IncomeTracking/IncomeTracking.css';
 import '../ExpenseTracker/ExpenseTracking.css';
-function ExpenseTracking({expense,expEntry,date,handleExpense,handleExpEntry,handleDate,AddExpense})
+function ExpenseTracking({expense,expEntry,expDate,handleExpense,handleExpEntry,handleExpDate,AddExpense})
 {
   return(
     <>
@@ -16,7 +16,7 @@ function ExpenseTracking({expense,expEntry,date,handleExpense,handleExpEntry,han
              <option>Rent</option>
            </select>
            <label>Date</label>
-           <input className='date-catcher' value={date} type="date" onChange={handleDate}/>
+           <input className='date-catcher' value={expDate} type="date" onChange={handleExpDate}/>
            <button className='add-button' onClick={AddExpense}>Add</button>
         </div>
         

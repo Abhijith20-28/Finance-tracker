@@ -12,6 +12,7 @@ const[balance,setBalance]=useState(()=>{
   return savedBalance ? Number(savedBalance):0});
 const[source,setSource]=useState('');
 const[date,setDate]=useState('');
+const[expDate,setExpDate]=useState('');
 const[history,setHistory]=useState(()=>{
 const savedHistory =localStorage.getItem('history-trans');
   return savedHistory ? JSON.parse(savedHistory):[];
@@ -26,6 +27,7 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
   const handleDate =(e)=>setDate(e.target.value);
   const handleExpense=(e)=>setExpense(e.target.value);
   const handleExpEntry=(e)=>setExpEntry(e.target.value);
+  const handleExpDate=(e)=>setExpDate(e.target.value);
  
   useEffect(()=>{
     localStorage.setItem('history-trans',JSON.stringify(history))
@@ -61,7 +63,7 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
      setDate(trans.date);
   }
   const AddExpense=()=>{
-    if(!expense||!expEntry||!date)
+    if(!expense||!expEntry||!expDate)
     {
       alert('please fill all the fields');
       return;
@@ -71,13 +73,13 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
       alert("No balance in your account");
       return;
     }
-    const newExpenses ={amount:Number(expense),expEntry,date}
+    const newExpenses ={amount:Number(expense),expEntry,expDate}
     
     setExpenseHistory([...expenseHistory,newExpenses]);
     setBalance((prevBalance)=> Number(prevBalance)-Number(expense));
     setExpense('');
     setExpEntry('');
-    setDate('');
+    setExpDate('');
 
   }
   const removeExpense=(indexToRemove)=>{
@@ -88,7 +90,7 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
   const editExpense =(expEd)=>{
     setExpense(expEd.amount);
     setExpEntry(expEd.expEntry);
-    setDate(expEd.date);
+    setExpDate(expEd.expDate);
   }
   
   return(
@@ -112,13 +114,13 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
             handleExpense={handleExpense}
             handleExpEntry={handleExpEntry}
             AddExpense={AddExpense}
-            handleDate={handleDate}
+            handleExpDate={handleExpDate}
           />  
         </div>
         <div className="right-section">
         <div className="financial-status">
             <h2>Current Financial Status</h2>
-            <div className="balance-container">Total Balance:${balance}</div>
+            <div className="balance-container">Total Balance:₹{balance}</div>
          </div> 
           <TransactionList 
           history={history}
