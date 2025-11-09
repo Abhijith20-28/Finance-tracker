@@ -69,8 +69,8 @@
 @media(max-width:768px){
   .income-grid,
   .expense-grid{
-    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    gap: 5px;
   }
   .income-delete,
   .income-edit,
@@ -80,10 +80,10 @@
     font-size: 14px;
   }
 }
-@media(max-width:480px){
+@media(max-width:592px){
   .income-grid,
   .expense-grid{
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(5,auto);
     gap: 8px;
   }
   .income-delete,

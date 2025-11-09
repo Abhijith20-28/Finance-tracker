@@ -27,6 +27,7 @@
   .main-container{
     flex-direction: column;
     overflow-y: auto;
+    flex-wrap: wrap;
   }
    
 }
