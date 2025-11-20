@@ -40,24 +40,27 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
  },[expenseHistory]);
 
  useEffect(()=>{
-  localStorage.setItem('balance-history',JSON.stringify(balance))
+  localStorage.setItem('balance-history',balance)
  },[balance])
-  const AddIncome =()=>{
+
+ console.log(balance);
+
+  const AddIncome =()=>
+    {
     if(!income||!source||!date){
       alert('please fill all the fields');
       return;
     }
-
-   if(incomeEditIndex !== null){
-      
+  if(incomeEditIndex !== null){
+    
       const updatedIncome = [...history];
+      const oldValueAmount=history[incomeEditIndex].amount;
       updatedIncome[incomeEditIndex]={amount:Number(income),source,date}
       setHistory(updatedIncome);
-      const oldValue =history[incomeEditIndex];
-      const oldValueAmount=oldValue.amount
-      setBalance((prevBalance)=>Number(prevBalance)-Number(oldValueAmount)+Number(income))
-      setIncomeEditindex(null);
-     
+      const diff=Number(income)-Number(oldValueAmount);
+      console.log(diff);
+      setBalance(prev=>prev+diff);
+      setIncomeEditindex(null); 
    }
   else{
     const newTransaction = {amount:Number(income),source,date}
@@ -85,31 +88,32 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
       alert('please fill all the fields');
       return;
     }
-    if(balance<=0)
+    if(expenseEditIndex===null && balance<=0)
     {
       alert("No balance in your account");
       return;
     }
-     if(expenseEditIndex !== null){
+     if(expenseEditIndex !== null)
+      {
       const updatedExpense = [...expenseHistory];
+      const oldValueAmount = expenseHistory[expenseEditIndex].amount;
       updatedExpense[expenseEditIndex]={amount:Number(expense),expEntry,expDate}
       setExpenseHistory(updatedExpense);
-      const oldvalue = expenseHistory[expenseEditIndex];
-      const oldValueAmount = oldvalue.amount;
-      console.log(oldValueAmount);
-      setBalance((prevBalance)=>Number(prevBalance)+Number(oldValueAmount)-Number(expense));
+      const diff = oldValueAmount - Number(expense);
+      setBalance(prev => prev + diff);
       setExpenseEditIndex(null);
+    }
+    else if(Number(expense)>balance){
+       alert("Not enough balance in your account")
     }
     else{
     const newExpenses ={amount:Number(expense),expEntry,expDate}
-    
     setExpenseHistory([...expenseHistory,newExpenses]);
-    setBalance((prevBalance)=> Number(prevBalance)-Number(expense));
+    setBalance(prev=> prev-Number(expense));
     }
     setExpense('');
     setExpEntry('');
     setExpDate('');
-    
   }
   const removeExpense=(indexToRemove)=>{
     const remove =expenseHistory[indexToRemove];
@@ -153,18 +157,14 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
          </div>
         <TransactionList 
           history={history}
-         
           removeIncome={removeIncome}
           EditIncome={EditIncome}
           exphistory={expenseHistory}
-   
           removeExpense={removeExpense}
           editExpense={editExpense}/>
           
-          <FinanceCharts expenseHistory={expenseHistory}/>
-
-         
-       </div>
+          <FinanceCharts expenseHistory={expenseHistory}/> 
+        </div>
         </div>
       </>
   )
