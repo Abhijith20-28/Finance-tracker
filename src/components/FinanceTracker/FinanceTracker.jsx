@@ -7,9 +7,7 @@ import ExpenseTracking from "../ExpenseTracker/ExpenseTracking";
 function FinanceTracker(){
 const[income,setIncome]=useState('');
 const[expense,setExpense]=useState('');
-const[balance,setBalance]=useState(()=>{
-  const savedBalance = localStorage.getItem('balance-history');
-  return savedBalance ? Number(savedBalance):0});
+const[balance,setBalance]=useState(0);
 const[source,setSource]=useState('');
 const[date,setDate]=useState('');
 const[expDate,setExpDate]=useState('');
@@ -39,12 +37,12 @@ const[expenseHistory,setExpenseHistory]=useState(()=>{
   localStorage.setItem('expense-storage',JSON.stringify(expenseHistory))
  },[expenseHistory]);
 
- useEffect(()=>{
-  localStorage.setItem('balance-history',balance)
- },[balance])
+useEffect(()=>{
+  const incomeTotal=history.reduce((sum,item)=>sum+item.amount,0);
+  const expenseTotal=expenseHistory.reduce((sum,item)=>sum+item.amount,0)
 
- console.log(balance);
-
+  setBalance(incomeTotal-expenseTotal)
+},[history,expenseHistory])
   const AddIncome =()=>
     {
     if(!income||!source||!date){
