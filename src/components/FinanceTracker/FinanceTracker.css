@@ -13,8 +13,24 @@
   gap: 20px;
   flex:1 1 300px;
   min-width: 300px;
- 
 }
+
+.financial-status{
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.balance-container{
+  font-size: 20px;
+  margin-top: 5px;
+}
+
 .income-tracking-container,
 .expense-tracking-container{
   display: flex;
@@ -23,6 +39,19 @@
   width: 100%;
   max-width: 350px;
 }
+@media (max-width: 992px) {
+  .main-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .left-section,
+  .right-section {
+    flex: 1 1 100%;
+    max-width: 600px;
+  }
+}
+
 @media (max-width:792px){
   .main-container{
     flex-direction: column;
@@ -39,15 +68,8 @@
     gap: 5px;
   }
 }
-@media (max-width: 992px) {
-  .main-container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .left-section,
-  .right-section {
-    flex: 1 1 100%;
-    max-width: 600px;
+@media(max-width:450px){
+  .financial-status{
+    width: 400px;
   }
 }

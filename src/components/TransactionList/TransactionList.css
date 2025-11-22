@@ -1,18 +1,4 @@
-.financial-status{
-  border: 1px solid #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 15px;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
-}
-.balance-container{
-  font-size: 20px;
-  margin-top: 5px;
-}
+
 .income-list,
 .expense-list{
   font-size: 20px;
@@ -61,7 +47,7 @@
   display: grid;
   grid-template-columns: repeat(5,1fr);
   gap: 10px;
-  padding: 0;
+  padding: 5px;
   list-style: none;
   align-items: center;
   margin: 0;
@@ -93,6 +79,14 @@
     width: 100%;
     text-align: center;
   }
+}
+@media(max-width:400px){
+  .income-grid,
+  .expense-grid{
+    grid-template-columns:repeat(5,auto);
+    overflow-y: scroll;
+  }
+ 
 }
 .income-grid>li>div,
 .expense-grid>li>div{

@@ -14,7 +14,7 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 function FinanceCharts({ expenseHistory }) {
-  // 🟢 PIE CHART: Category Breakdown
+  
   const categoryTotals = expenseHistory.reduce((acc, curr) => {
     const category = curr.expEntry || "Uncategorized";
     acc[category] = (acc[category] || 0) + curr.amount;
@@ -39,9 +39,9 @@ function FinanceCharts({ expenseHistory }) {
     ],
   };
 
-  // 🟢 BAR CHART: Monthly Expense Trend
+  
   const monthlyTotals = expenseHistory.reduce((acc, curr) => {
-    const month = new Date(curr.date).toLocaleString("default", { month: "short" });
+    const month = new Date(curr.expDate).toLocaleString("default", { month: "short" });
     acc[month] = (acc[month] || 0) + curr.amount;
     return acc;
   }, {});
@@ -50,7 +50,7 @@ function FinanceCharts({ expenseHistory }) {
     labels: Object.keys(monthlyTotals),
     datasets: [
       {
-        label: "Monthly Expenses ($)",
+        label: "Monthly Expenses (₹)",
         data: Object.values(monthlyTotals),
         backgroundColor: "#36a2eb",
       },
