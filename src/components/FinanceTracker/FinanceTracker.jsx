@@ -45,10 +45,11 @@ useEffect(()=>{
 },[history,expenseHistory])
   const AddIncome =()=>
     {
-    if(!income||!source||!date){
+  /*  if(!income||!source||!date){
       alert('please fill all the fields');
       return;
     }
+      */
   if(incomeEditIndex !== null){
     
       const updatedIncome = [...history];
@@ -76,6 +77,7 @@ useEffect(()=>{
   }
   const EditIncome=(trans,index)=>{
      setIncome(trans.amount);
+     console.log(trans.amount);
      setSource(trans.source);
      setDate(trans.date);
      setIncomeEditindex(index);
@@ -126,9 +128,10 @@ useEffect(()=>{
   }
   return(
     <>
-      <h1 className="app-name">PERSONAL FINANCE TRACKER</h1>
+      <div className="app-name">PERSONAL FINANCE TRACKER</div>
       <div className="main-container">
         <div className="left-section responsive-section">
+          <div className="card">
            <IncomeTracking
           income={income}
           source={source}
@@ -138,6 +141,8 @@ useEffect(()=>{
           handleDate={handleDate}
           AddIncome={AddIncome}
           />  
+          </div>
+          <div className="card">
            <ExpenseTracking
             expense={expense}
             expEntry={expEntry}
@@ -147,6 +152,7 @@ useEffect(()=>{
             AddExpense={AddExpense}
             handleExpDate={handleExpDate}
           />  
+          </div>
         </div>
         <div className="right-section">
         <div className="financial-status">

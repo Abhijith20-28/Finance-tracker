@@ -1,75 +1,190 @@
-.main-container{
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: "Roboto", "Segoe UI", sans-serif;
+  color: #222;
+}
+
+
+.app-name {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a3e5b;
+  margin: 20px 0;
+}
+
+
+.main-container {
   display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
   padding: 20px;
- 
+  justify-content: center;
+  align-items: flex-start;
 }
-.right-section,
-.left-section{
+
+.left-section,
+.right-section {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex:1 1 300px;
+  flex: 1;
   min-width: 300px;
+  max-width: 600px;
 }
 
-.financial-status{
-  border: 1px solid #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 15px;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
-}
-.balance-container{
-  font-size: 20px;
-  margin-top: 5px;
-}
 
+.card,
 .income-tracking-container,
-.expense-tracking-container{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.expense-tracking-container,
+.financial-status,
+.recent-transaction-container {
+  background: #ffffff; 
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.income-title,
+.expense-title,
+.recent-transaction-container h2,
+.financial-status h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1a3e5b;
+}
+
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 10px;
+  display: block;
+  color: #555;
+}
+
+input,
+select {
   width: 100%;
-  max-width: 350px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cfd3d9;
+  margin-top: 5px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s ease;
 }
-@media (max-width: 992px) {
+
+input:focus,
+select:focus {
+  border-color: #3b82f6;
+}
+
+
+.income-add-button,
+.add-button {
+  width: 100%;         
+  padding: 12px 0;       
+  font-size: 1rem;
+  margin-top: 15px;      
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .income-add-button,
+  .add-button {
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .income-add-button,
+  .add-button {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+}
+
+
+.financial-status {
+  text-align: center;
+}
+
+.balance-container {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #1a3e5b;
+}
+
+
+.income-grid,
+.expense-grid {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.income-list,
+.expense-list {
+  background: #f9fafb; 
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.income-list div,
+.expense-list div {
+  margin-bottom: 4px;
+}
+
+.income-delete,
+.income-edit,
+.expense-remove,
+.expense-edit {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.15s ease;
+}
+
+.income-delete { background: #8b5cf6; color: white; }
+.income-delete:hover { background: #7c3aed; }
+
+.income-edit { background: #f59e0b; color: white; }
+.income-edit:hover { background: #d97706; }
+
+.expense-remove { background: #6b7280; color: white; }
+.expense-remove:hover { background: #4b5563; }
+
+.expense-edit { background: #22c55e; color: white; }
+.expense-edit:hover { background: #16a34a; }
+
+@media (max-width: 900px) {
   .main-container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .left-section,
-  .right-section {
-    flex: 1 1 100%;
-    max-width: 600px;
-  }
-}
-
-@media (max-width:792px){
-  .main-container{
     flex-direction: column;
-    overflow-y: auto;
-    flex-wrap: wrap;
-  }
-   
-}
-@media(max-width:560px){
-  .income-tracking-container,
-  .expense-tracking-container{
-    width: 100%;
-    max-width: 300px;
-    gap: 5px;
+    align-items: center;
   }
 }
-@media(max-width:450px){
-  .financial-status{
-    width: 400px;
+
+@media (max-width: 500px) {
+  .income-grid,
+  .expense-grid {
+    grid-template-columns: 1fr;
   }
 }
