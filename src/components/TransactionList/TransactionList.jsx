@@ -19,9 +19,11 @@ function TransactionList({history,removeIncome,EditIncome,exphistory,removeExpen
         </button>
         </div>
        <div>
+        <a href='#income'>
        <button className="income-edit" onClick={()=>EditIncome(transaction,index)}>
         Edit
         </button>
+        </a>
       </div>
       </li>
       ))} 
@@ -41,9 +43,11 @@ function TransactionList({history,removeIncome,EditIncome,exphistory,removeExpen
         </button>
         </div>
         <div>
+          <a href='#expenses'>
         <button className="expense-edit" onClick={()=>editExpense(living,index)}>
           Edit
-          </button>
+        </button>
+        </a>
         </div>
       </li>
     ))}
