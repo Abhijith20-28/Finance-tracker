@@ -13,12 +13,11 @@ function TransactionList({history,removeIncome,EditIncome,exphistory,removeExpen
         <div>₹{transaction.amount}</div>
         <div>{transaction.source}</div>
         <div>on{transaction.date}</div>   
-        <div>
+        <div className='transaction-actions'>
           <button className="income-delete" onClick={()=>removeIncome(index)}>
             Delete
         </button>
-        </div>
-       <div>
+        
         <a href='#income'>
        <button className="income-edit" onClick={()=>EditIncome(transaction,index)}>
         Edit
@@ -37,12 +36,11 @@ function TransactionList({history,removeIncome,EditIncome,exphistory,removeExpen
         <div>₹{living.amount}</div>
         <div>{living.expEntry}</div>
         <div> on {living.expDate}</div>
-        <div>
-        <button className="expense-remove" onClick={()=>removeExpense(index)}>
-          Remove
-        </button>
-        </div>
-        <div>
+        <div className='transaction-actions'>
+           <button className="expense-remove" onClick={()=>removeExpense(index)}>
+            Remove
+           </button>
+      
           <a href='#expenses'>
         <button className="expense-edit" onClick={()=>editExpense(living,index)}>
           Edit
