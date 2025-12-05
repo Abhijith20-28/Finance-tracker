@@ -36,6 +36,8 @@ body {
 .expense-tracking-container,
 .financial-status,
 .recent-transaction-container {
+  display: flex;
+  flex-direction: column;
   background: #ffffff; 
   border-radius: 12px;
   padding: 20px;
@@ -189,6 +191,13 @@ select:focus {
     width: 100%;
     max-width: 600px;
   }
+   .income-delete,
+  .income-edit,
+  .expense-remove,
+  .expense-edit {
+   width: 200px;
+    text-align: center;
+  }
 }
 @media (max-width: 500px) {
  
@@ -206,7 +215,7 @@ select:focus {
   .income-edit,
   .expense-remove,
   .expense-edit {
-    width: 100%;
+    width: 130px;
     text-align: center;
   }
 }

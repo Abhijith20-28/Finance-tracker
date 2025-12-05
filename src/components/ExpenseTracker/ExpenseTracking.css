@@ -6,6 +6,8 @@
   background-color: rgb(220, 60, 20);
   color: white;
   font-weight: bold;
+  max-width: 250px;
+  margin-left: 55px;
 }
 .expense-title{
   color: rgb(139, 32, 0);

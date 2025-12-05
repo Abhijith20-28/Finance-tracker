@@ -1,22 +1,16 @@
-/*************************************
-  TRANSACTION LIST — FINAL CLEAN CSS
-*************************************/
 
-/* Layout container for action buttons */
 .transaction-actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
-
-/* ------------ BUTTON STYLES ------------ */
-
 .income-delete {
   background-color: #8b5cf6;
   color: white;
   font-weight: bold;
   padding: 8px 12px;
   border-radius: 8px;
+  width: 150px;
   border: none;
   cursor: pointer;
   transition: 0.2s ease;
@@ -31,6 +25,7 @@
   font-weight: bold;
   padding: 8px 12px;
   border-radius: 8px;
+  width: 150px;
   border: none;
   cursor: pointer;
   transition: 0.2s ease;
@@ -48,6 +43,7 @@
   border: none;
   cursor: pointer;
   transition: 0.2s ease;
+  width: 150px;
 }
 .expense-remove:hover {
   background-color: #4b5563;
@@ -62,19 +58,10 @@
   border: none;
   cursor: pointer;
   transition: 0.2s ease;
+  width: 150px;
 }
 .expense-edit:hover {
   background-color: #16a34a;
 }
 
-/* ------------ MOBILE HANDLING ------------ */
 
-@media (max-width: 500px) {
-  .income-delete,
-  .income-edit,
-  .expense-remove,
-  .expense-edit {
-    width: 100%;
-    text-align: center;
-  }
-}

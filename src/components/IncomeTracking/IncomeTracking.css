@@ -6,6 +6,8 @@
   background-color: crimson;
   color: white;
   font-weight: bold;
+  max-width: 250px;
+  margin-left: 55px;
 }
 .income-title{
   color: darkgreen;
