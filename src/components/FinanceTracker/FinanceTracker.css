@@ -23,13 +23,19 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+.left-section{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
 
 .left-section,
 .right-section {
   flex: 1;
   min-width: 320px;
- 
+  
 }
+
 
 .card,
 .income-tracking-container,
@@ -90,8 +96,11 @@ select:focus {
 
 .income-add-button,
 .add-button {
-  width: 100%;         
-  padding: 12px 0;       
+  width: 100%;  
+  max-width: 250px;       
+  margin: 12px auto 0;  
+  display: block;  
+  padding: 10px 0;   
   font-size: 1rem;
   margin-top: 15px;      
   border-radius: 8px;
