@@ -8,7 +8,7 @@ function ExpenseTracking({expense,expEntry,expDate,handleExpense,handleExpEntry,
   }
   return(
     <>
-    <form id='income' onSubmit={handleSubmit}>
+    <form id='expenses' onSubmit={handleSubmit}>
     <div className="expense-tracking-container">
            <h2 className='expense-title'>EXPENSE TRACKING</h2>
            <label>Amount</label>

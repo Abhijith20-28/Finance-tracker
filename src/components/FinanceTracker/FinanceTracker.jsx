@@ -133,14 +133,14 @@ useEffect(()=>{
         <div className="left-section responsive-section">
           <div className="card">
            <IncomeTracking
-          income={income}
-          source={source}
-          date={date}
-          handleIncome={handleIncome}
-          handleSource={handleSource}
-          handleDate={handleDate}
-          AddIncome={AddIncome}
-          />  
+              income={income}
+              source={source}
+               date={date}
+               handleIncome={handleIncome}
+               handleSource={handleSource}
+               handleDate={handleDate}
+               AddIncome={AddIncome}
+            />  
           </div>
           <div className="card">
            <ExpenseTracking
